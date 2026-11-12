@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>중장비 대탐험 — 힘센 기계들</title>
+<meta name="description" content="굴착기, 불도저, 덤프트럭, 크레인… 공사장에서 일하는 힘센 중장비 8대를 사진으로 만나고 이름 맞히기 놀이도 해 보세요.">
+<meta name="theme-color" content="#ffc400">
+<meta property="og:title" content="중장비 대탐험 — 힘센 기계들">
+<meta property="og:description" content="공사장에서 일하는 힘센 중장비 8대를 사진으로 만나요.">
+<meta property="og:image" content="img/excavator.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffaf0; --surface:#ffffff; --ink:#20201d; --ink-soft:#5c5a53;
+  --brand:#ffc400; --brand-deep:#e09c00; --accent:#1b6ef3; --line:#e9e2d0;
+  --shadow:0 6px 0 rgba(0,0,0,.08), 0 18px 34px -18px rgba(0,0,0,.45);
+  --radius:22px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17171a; --surface:#232329; --ink:#f4f1ea; --ink-soft:#b4b0a6;
+    --brand:#ffc93c; --brand-deep:#ffd166; --accent:#6aa6ff; --line:#35353d;
+    --shadow:0 6px 0 rgba(0,0,0,.35), 0 20px 36px -18px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17171a; --surface:#232329; --ink:#f4f1ea; --ink-soft:#b4b0a6;
+  --brand:#ffc93c; --brand-deep:#ffd166; --accent:#6aa6ff; --line:#35353d;
+  --shadow:0 6px 0 rgba(0,0,0,.35), 0 20px 36px -18px rgba(0,0,0,.9);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans KR",system-ui,-apple-system,"Malgun Gothic",sans-serif;
+  font-size:17px; line-height:1.75; -webkit-text-size-adjust:100%;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+h1,h2,h3,.jua{font-family:"Jua","Noto Sans KR",sans-serif; font-weight:400; letter-spacing:.01em}
+img{max-width:100%; display:block}
+a{color:var(--accent)}
+.wrap{width:min(1120px,100% - 32px); margin-inline:auto}
+
+/* 안전 줄무늬 */
+.stripe{height:14px; background:repeating-linear-gradient(135deg,var(--brand) 0 22px,#1a1a1a 22px 44px)}
+
+/* 히어로 */
+.hero{position:relative; overflow:hidden; background:#101014}
+.hero-img{width:100%; height:min(74vh,620px); object-fit:cover; opacity:.6}
+.hero-inner{position:absolute; inset:0; display:grid; align-content:center; justify-items:center; text-align:center; padding:24px;
+  background:linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,.15) 40%,rgba(0,0,0,.78))}
+.hero h1{margin:0; color:#fff; font-size:clamp(2.4rem,9vw,5rem); line-height:1.08; text-shadow:0 4px 24px rgba(0,0,0,.6)}
+.hero h1 em{font-style:normal; color:var(--brand); display:block}
+.hero p{margin:.7rem 0 0; color:#f1efe8; font-size:clamp(1rem,2.6vw,1.2rem); max-width:30ch; text-shadow:0 2px 12px rgba(0,0,0,.85)}
+.hero-cta{margin-top:1.6rem; display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
+.btn{
+  display:inline-block; padding:.75em 1.5em; border-radius:999px; border:0; cursor:pointer;
+  font-family:"Jua","Noto Sans KR",sans-serif; font-size:1.05rem; text-decoration:none;
+  background:var(--brand); color:#1a1a1a; box-shadow:0 4px 0 #c98f00; transition:transform .12s, box-shadow .12s;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:0 6px 0 #c98f00}
+.btn:active{transform:translateY(2px); box-shadow:0 2px 0 #c98f00}
+.btn.ghost{background:rgba(255,255,255,.14); color:#fff; box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 2px #fff}
+
+/* 섹션 */
+section{padding:clamp(48px,8vw,88px) 0}
+.sec-head{text-align:center; margin-bottom:clamp(28px,5vw,48px)}
+.sec-head h2{margin:0; font-size:clamp(1.8rem,5.5vw,2.8rem)}
+.sec-head p{margin:.4rem auto 0; color:var(--ink-soft); max-width:40ch}
+
+/* 카드 */
+.grid{display:grid; gap:clamp(18px,3vw,30px); grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.card{
+  background:var(--surface); border:2px solid var(--line); border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column;
+  opacity:0; transform:translateY(22px); transition:opacity .5s ease, transform .5s ease;
+}
+.card.in{opacity:1; transform:none}
+.card figure{margin:0; position:relative; background:var(--line)}
+.card figure img{width:100%; height:auto; aspect-ratio:16/10; object-fit:cover}
+.no{
+  position:absolute; left:12px; top:12px; width:42px; height:42px; display:grid; place-items:center;
+  border-radius:50%; background:var(--brand); color:#1a1a1a; font-family:"Jua","Noto Sans KR",sans-serif; font-size:1.15rem;
+  box-shadow:0 3px 10px rgba(0,0,0,.35)
+}
+.card-body{padding:18px 20px 22px}
+.card h3{margin:0; font-size:1.55rem; display:flex; align-items:baseline; gap:.5em; flex-wrap:wrap}
+.card h3 span{font-family:"Noto Sans KR",sans-serif; font-size:.78rem; font-weight:700; color:var(--ink-soft); letter-spacing:.08em; text-transform:uppercase}
+.also{margin:.1em 0 0; font-size:.85rem; color:var(--ink-soft)}
+.job{margin:.6em 0 0}
+.fact{
+  margin:1em 0 0; padding:.85em 1em; border-radius:14px; font-size:.95rem; line-height:1.65;
+  background:rgba(255,196,0,.16); border-left:5px solid var(--brand);
+}
+.fact b{font-family:"Jua","Noto Sans KR",sans-serif; display:block; color:var(--brand-deep)}
+
+/* 퀴즈 */
+.quiz-wrap{background:var(--surface); border:2px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:clamp(18px,4vw,32px); max-width:640px; margin-inline:auto}
+#q-photo{width:100%; height:auto; aspect-ratio:16/10; object-fit:cover; border-radius:16px; background:var(--line)}
+.q-meta{display:flex; justify-content:space-between; align-items:center; margin:14px 0 2px;
+  font-family:"Jua","Noto Sans KR",sans-serif; color:var(--ink-soft)}
+.q-opts{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin-top:12px}
+.q-opt{
+  padding:.85em .6em; border-radius:14px; border:2px solid var(--line); background:var(--bg); color:var(--ink);
+  font-family:"Jua","Noto Sans KR",sans-serif; font-size:1.1rem; cursor:pointer;
+  transition:transform .1s, background .15s, border-color .15s;
+}
+.q-opt:hover:not(:disabled){border-color:var(--brand); transform:translateY(-2px)}
+.q-opt:disabled{cursor:default}
+.q-opt.right{background:#2ecc71; border-color:#27ae60; color:#08240f}
+.q-opt.wrong{background:#ff7675; border-color:#e06360; color:#3b0b0a}
+.q-fb{min-height:1.6em; margin:14px 0 0; text-align:center; font-family:"Jua","Noto Sans KR",sans-serif; font-size:1.2rem}
+.q-next{display:block; margin:12px auto 0}
+.q-done{text-align:center}
+.q-done .score{font-family:"Jua","Noto Sans KR",sans-serif; font-size:2.6rem; color:var(--brand-deep); display:block; margin:.15em 0 .3em}
+
+/* 푸터 */
+footer{background:var(--surface); border-top:2px solid var(--line); padding:40px 0 52px; font-size:.86rem; color:var(--ink-soft)}
+footer h2{font-size:1.2rem; margin:0 0 .5em; color:var(--ink)}
+.credits{list-style:none; padding:0; margin:1em 0 0; display:grid; gap:.45em}
+.credits b{color:var(--ink)}
+.note{margin-top:1.6em; padding-top:1.2em; border-top:1px dashed var(--line)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important; transition-duration:.001ms !important}
+  .card{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero-img" src="img/excavator.jpg" width="1400" height="875" fetchpriority="high"
+       alt="굴착기가 긴 팔을 뻗어 퍼 올린 흙을 쏟아내며 모래 먼지를 일으키고 있다">
+  <div class="hero-inner">
+    <h1>중장비<em>대탐험</em></h1>
+    <p>공사장에서 일하는 힘센 기계 8대를 만나 보자!</p>
+    <div class="hero-cta">
+      <a class="btn" href="#machines">기계 보러 가기</a>
+      <a class="btn ghost" href="#quiz">이름 맞히기 놀이</a>
+    </div>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<main>
+<section id="machines">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>힘센 기계 8대</h2>
+      <p>사진을 보면서 어떤 일을 하는 기계인지 알아보세요.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<section id="quiz">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>이름 맞히기 놀이</h2>
+      <p>사진 속 기계의 이름은 무엇일까요? 모두 8문제예요.</p>
+    </div>
+    <div class="quiz-wrap" id="quiz-box"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>사진 출처</h2>
+    <p>이 페이지의 사진은 모두 위키미디어 공용(Wikimedia Commons)에서 가져온, 자유롭게 이용할 수 있는 이미지입니다.</p>
+    <ul class="credits" id="credits"></ul>
+    <p class="note">
+      CC BY · CC BY-SA 사진은 저작자 표시 조건에 따라 위와 같이 출처를 밝힙니다.
+      각 ‘원본’ 링크에서 원래 사진과 전체 라이선스 내용을 확인할 수 있습니다.
+    </p>
+  </div>
+</footer>
+
+<script>
+var MACHINES = [
+  { key:"excavator", ko:"굴착기", en:"Excavator", also:"포클레인이라고도 불러요",
+    job:"긴 팔 끝에 달린 커다란 바가지로 땅을 파고, 퍼낸 흙을 덤프트럭에 실어 줘요.",
+    fact:"운전석이 통째로 빙글빙글 360도 돌아가요. 바퀴 대신 무한궤도를 신으면 진흙탕에서도 빠지지 않아요.",
+    alt:"굴착기가 팔을 뻗어 퍼 올린 흙을 쏟아내며 먼지를 일으키는 모습" },
+  { key:"bulldozer", ko:"불도저", en:"Bulldozer", also:"짧게 도저라고도 해요",
+    job:"앞에 달린 넓고 단단한 날로 흙더미를 쭉쭉 밀어서 땅을 평평하게 만들어요.",
+    fact:"뒤쪽에 달린 뾰족한 갈퀴를 땅에 꽂고 끌면, 딱딱하게 굳은 땅도 부서진답니다.",
+    alt:"노란색 대형 불도저가 앞쪽에 넓은 날을 달고 서 있는 모습" },
+  { key:"dumptruck", ko:"덤프트럭", en:"Dump Truck", also:"짧게 덤프라고도 해요",
+    job:"흙과 돌을 가득 싣고 달려가서, 짐칸을 번쩍 기울여 한 번에 쏟아부어요.",
+    fact:"공사장용 덤프트럭은 몸통 가운데가 접혀요. 그래서 좁고 울퉁불퉁한 길도 잘 돌아다녀요.",
+    alt:"노란색 대형 덤프트럭이 정면을 향해 서 있는 모습" },
+  { key:"crane", ko:"크레인", en:"Crane", also:"기중기라고도 불러요",
+    job:"긴 팔을 하늘 높이 쭉 뻗어서, 아주 무거운 물건을 건물 꼭대기까지 들어 올려요.",
+    fact:"들어 올리기 전에 네 개의 다리를 옆으로 쭉 펴서 땅을 단단히 짚어요. 그래야 넘어지지 않거든요.",
+    alt:"노란색 크레인이 붐을 하늘 높이 들어 올린 공사 현장, 뒤로 타워크레인들이 보인다" },
+  { key:"mixer", ko:"레미콘", en:"Mixer Truck", also:"믹서트럭이라고도 해요",
+    job:"뒤에 달린 커다란 통에 콘크리트를 담고, 공사장까지 빙글빙글 돌리면서 가져다줘요.",
+    fact:"통을 멈추면 콘크리트가 그대로 굳어 버려요. 그래서 달리는 내내 쉬지 않고 돌린답니다.",
+    alt:"회색 드럼을 단 레미콘 트럭이 길가에 서 있는 모습" },
+  { key:"roller", ko:"로드롤러", en:"Road Roller", also:"다짐기라고도 해요",
+    job:"무겁고 둥근 쇠바퀴로 길을 꾹꾹 눌러서, 울퉁불퉁한 바닥을 매끈하게 다져요.",
+    fact:"뜨거운 아스팔트가 바퀴에 달라붙지 않도록, 롤러는 물을 조금씩 뿌리면서 일해요.",
+    alt:"로드롤러가 새로 깐 검은 아스팔트 위를 지나가며 다지는 모습" },
+  { key:"loader", ko:"휠로더", en:"Wheel Loader", also:"짧게 로더라고도 해요",
+    job:"앞에 달린 커다란 바가지로 흙과 모래를 한가득 퍼서 트럭에 부어 줘요.",
+    fact:"큰 휠로더는 바퀴 하나가 어른 키만 해요. 타이어 옆에 서면 올려다봐야 한답니다.",
+    alt:"노란색 휠로더가 커다란 버킷을 앞에 달고 서 있는 모습" },
+  { key:"forklift", ko:"지게차", en:"Forklift", also:"포크리프트라고도 해요",
+    job:"길쭉한 포크 두 개를 짐 밑에 쏙 넣어서, 무거운 짐을 번쩍 들어 옮겨요.",
+    fact:"뒤쪽에 무거운 쇳덩이가 숨어 있어요. 앞에 짐을 들어도 꼬꾸라지지 않게 균형을 잡아 주는 거예요.",
+    alt:"지게차가 포크로 커다란 짐을 들어 옮기는 모습" }
+];
+
+var CREDITS = [
+  { key:"excavator", t:"NMCB 11 working in Cyprus", by:"U.S. Navy, Petty Officer 3rd Class Jacob McBride", lic:"퍼블릭 도메인",
+    url:"https://commons.wikimedia.org/wiki/File:NMCB_11_working_in_Cyprus_(8392516).jpg" },
+  { key:"bulldozer", t:"Giant Caterpillar", by:"Alf van Beem", lic:"CC0",
+    url:"https://commons.wikimedia.org/wiki/File:Giant_Caterpillar_p1.JPG" },
+  { key:"dumptruck", t:"Caterpillar 725", by:"AlfvanBeem", lic:"CC0",
+    url:"https://commons.wikimedia.org/wiki/File:Caterpillar_725_p1.JPG" },
+  { key:"crane", t:"A Liebherr LTM 1500-8.1 crane truck", by:"Tbatb", lic:"CC BY-SA 4.0",
+    url:"https://commons.wikimedia.org/wiki/File:A_Liebherr_LTM_1500-8.1_crane_truck_lifting_a_Genie_S-85_Lift_Crane_02.jpg" },
+  { key:"mixer", t:"Mercedes-Benz Axor based cement mixer truck", by:"High Contrast", lic:"CC BY 3.0 DE",
+    url:"https://commons.wikimedia.org/wiki/File:Mercedes-Benz_Axor_based_cement_mixer_truck.JPG" },
+  { key:"roller", t:"Ride-on roller compactor, Canada", by:"Marc-Lautenbacher", lic:"CC BY-SA 4.0",
+    url:"https://commons.wikimedia.org/wiki/File:Ride-on_roller_compactor,_an_equipment_for_asphalt_pavement,_Canada.jpg" },
+  { key:"loader", t:"コマツ WA500", by:"めどい", lic:"CC BY-SA 4.0",
+    url:"https://commons.wikimedia.org/wiki/File:%E3%82%B3%E3%83%9E%E3%83%84WA500_%E9%81%8B%E8%BB%A2%E8%B3%AA%E9%87%8F33845kg_%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E5%AE%B9%E9%87%8F5.6%E3%8E%A5_%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E5%87%BA%E5%8A%9B266kw.jpg" },
+  { key:"forklift", t:"Material Lift Truck", by:"Mrbobax", lic:"CC BY-SA 4.0",
+    url:"https://commons.wikimedia.org/wiki/File:Material_Lift_Truck.jpg" }
+];
+
+function byKey(k){ for (var i=0;i<MACHINES.length;i++){ if (MACHINES[i].key===k) return MACHINES[i]; } return null; }
+
+/* 카드 만들기 */
+var grid = document.getElementById("grid");
+MACHINES.forEach(function(m, i){
+  var el = document.createElement("article");
+  el.className = "card";
+  el.innerHTML =
+    '<figure><span class="no">' + ("0" + (i + 1)).slice(-2) + '</span>' +
+    '<img src="img/' + m.key + '.jpg" alt="' + m.alt + '" loading="lazy" decoding="async" width="1400" height="875"></figure>' +
+    '<div class="card-body">' +
+      '<h3>' + m.ko + ' <span>' + m.en + '</span></h3>' +
+      '<p class="also">' + m.also + '</p>' +
+      '<p class="job">' + m.job + '</p>' +
+      '<p class="fact"><b>알고 있니?</b>' + m.fact + '</p>' +
+    '</div>';
+  grid.appendChild(el);
+});
+
+/* 사진 출처 */
+var credEl = document.getElementById("credits");
+CREDITS.forEach(function(c){
+  var m = byKey(c.key);
+  var li = document.createElement("li");
+  li.innerHTML = '<b>' + m.ko + '</b> — ' + c.t + ' / ' + c.by + ' / ' + c.lic +
+    ' · <a href="' + c.url + '" target="_blank" rel="noopener noreferrer">원본</a>';
+  credEl.appendChild(li);
+});
+
+/* 스크롤 등장 효과 */
+var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var cards = document.querySelectorAll(".card");
+if (window.IntersectionObserver && !reduce) {
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  cards.forEach(function(c){ io.observe(c); });
+} else {
+  cards.forEach(function(c){ c.classList.add("in"); });
+}
+
+/* 이름 맞히기 퀴즈 */
+var box = document.getElementById("quiz-box");
+var order = [], step = 0, score = 0;
+
+function shuffle(a){
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function startQuiz(){
+  order = shuffle(MACHINES.slice());
+  step = 0; score = 0;
+  renderQuestion();
+}
+
+function renderQuestion(){
+  if (step >= order.length) { renderDone(); return; }
+  var m = order[step];
+  var others = MACHINES.filter(function(x){ return x.key !== m.key; });
+  var opts = shuffle(shuffle(others).slice(0, 3).concat([m]));
+
+  box.innerHTML =
+    '<img id="q-photo" src="img/' + m.key + '.jpg" width="1400" height="875" alt="이름을 맞혀 볼 중장비 사진">' +
+    '<div class="q-meta"><span>' + (step + 1) + ' / ' + order.length + '번</span><span>점수 ' + score + '</span></div>' +
+    '<div class="q-opts" id="q-opts"></div>' +
+    '<p class="q-fb" id="q-fb" role="status" aria-live="polite"></p>';
+
+  var optWrap = document.getElementById("q-opts");
+  opts.forEach(function(o){
+    var b = document.createElement("button");
+    b.className = "q-opt"; b.type = "button"; b.textContent = o.ko;
+    b.addEventListener("click", function(){ answer(b, o, m); });
+    optWrap.appendChild(b);
+  });
+}
+
+function answer(btn, chosen, correct){
+  var all = Array.prototype.slice.call(document.querySelectorAll(".q-opt"));
+  all.forEach(function(b){ b.disabled = true; });
+  var fb = document.getElementById("q-fb");
+
+  if (chosen.key === correct.key) {
+    btn.classList.add("right");
+    score++;
+    fb.textContent = "딩동댕! " + correct.ko + " 맞아요 🎉";
+  } else {
+    btn.classList.add("wrong");
+    all.forEach(function(b){ if (b.textContent === correct.ko) b.classList.add("right"); });
+    fb.textContent = "아쉬워요! 정답은 " + correct.ko + "예요.";
+  }
+
+  var next = document.createElement("button");
+  next.className = "btn q-next"; next.type = "button";
+  next.textContent = (step === order.length - 1) ? "결과 보기" : "다음 문제";
+  next.addEventListener("click", function(){ step++; renderQuestion(); });
+  fb.parentNode.appendChild(next);
+  next.focus();
+}
+
+function renderDone(){
+  var msg = score === order.length ? "완벽해요! 중장비 박사님 🏆"
+          : score >= order.length - 2 ? "아주 잘했어요! 👏"
+          : score >= order.length / 2 ? "좋아요! 한 번 더 해 볼까요? 💪"
+          : "괜찮아요, 다시 하면 더 잘할 거예요! 🚜";
+  box.innerHTML =
+    '<div class="q-done">' +
+      '<p class="jua" style="font-size:1.3rem;margin:0">' + msg + '</p>' +
+      '<span class="score">' + score + ' / ' + order.length + '</span>' +
+      '<button class="btn" type="button" id="again">다시 하기</button>' +
+    '</div>';
+  document.getElementById("again").addEventListener("click", startQuiz);
+}
+
+startQuiz();
+</script>
+</body>
+</html>
